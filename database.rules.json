@@ -1,8 +1,9 @@
 {
   "rules": {
     ".read": false,
-    "formulas": { ".read": "auth != null", ".write": "auth != null && auth.token.email === 'adityasonihyderabad@gmail.com'" },
-    "users": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": "auth != null && auth.uid === $uid", ".validate": "newData.hasChildren(['displayName','email','createdAt','lastLogin'])" } },
+    "formulas": { ".read": "auth != null", ".write": "auth != null && (auth.token.email === 'adityasonihyderabad@gmail.com' || root.child('admins').child(auth.uid).exists())" },
+    "admins": { ".read": "auth != null && auth.token.email === 'adityasonihyderabad@gmail.com'", ".write": "auth != null && auth.token.email === 'adityasonihyderabad@gmail.com'", "$uid": { ".read": "auth != null && auth.uid === $uid" } },
+    "users": { ".read": "auth != null && auth.token.email === 'adityasonihyderabad@gmail.com'", "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": "auth != null && auth.uid === $uid", ".validate": "newData.hasChildren(['displayName','email','createdAt','lastLogin'])" } },
     "userProgress": { "$uid": { ".read": "auth != null && auth.uid === $uid", "$formulaId": { ".write": "auth != null && auth.uid === $uid", ".validate": "newData.hasChildren(['status','attempts','lastReviewed','updatedAt']) && (newData.child('status').val() === 'easy' || newData.child('status').val() === 'needPractice' || newData.child('status').val() === 'forgot') && newData.child('attempts').isNumber()" } } },
     "userStats": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": "auth != null && auth.uid === $uid", ".validate": "newData.hasChildren(['totalReviewed','easyCount','needPracticeCount','forgotCount','currentStreak','lastRevisionDate'])" } }
   }

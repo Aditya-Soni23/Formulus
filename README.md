@@ -15,12 +15,13 @@ The Firebase project configuration is in `firebase/config.js`. In the Firebase c
 3. Create the Realtime Database if it is not already enabled.
 4. Paste/deploy [database.rules.json](database.rules.json) as its Realtime Database rules.
 
-Only `adityasonihyderabad@gmail.com` can write global formula content. The rule, rather than the hidden frontend UI, enforces this restriction.
+`adityasonihyderabad@gmail.com` is the owner account. From Admin → **Admin access**, the owner can grant or revoke other admins. Additional admins can manage formulas but cannot change admin access. A person must sign in once before their email can be granted access, which lets the app securely associate the email with their Firebase account ID.
 
 ## Data layout
 
 - `/formulas/{subject}/{chapterKey}/{formulaId}`: shared formula sets
 - `/users/{uid}`: minimal account profile
+- `/admins/{uid}`: owner-managed list of additional formula administrators
 - `/userProgress/{uid}/{formulaId}`: personal status and attempts
 - `/userStats/{uid}`: maintained revision counts and streak
 

@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.formulus.app",
+        "sha256_cert_fingerprints": ["69:4E:D1:38:98:FE:89:79:86:27:AE:80:DF:D2:5D:D1:A8:28:C4:81:E9:F1:50:47:70:03:B7:E3:CB:9C:B5:C5"]
+      }
+    }]
