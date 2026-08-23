@@ -1,0 +1,10 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import { getAnalytics, isSupported } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js';
+import { getAuth, GoogleAuthProvider, setPersistence, browserLocalPersistence } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js';
+const firebaseConfig = { apiKey:'AIzaSyA4YGpyeIU9_UX6YzwFOixVFqgCSldFyhc', authDomain:'formulus-de0b6.firebaseapp.com', databaseURL:'https://formulus-de0b6-default-rtdb.firebaseio.com', projectId:'formulus-de0b6', storageBucket:'formulus-de0b6.firebasestorage.app', messagingSenderId:'501204937232', appId:'1:501204937232:web:11a9cd3c6e869c656af895', measurementId:'G-ZNLXHWL5RV' };
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app); export const db = getDatabase(app); export const provider = new GoogleAuthProvider();
+setPersistence(auth, browserLocalPersistence).catch(console.warn);
+isSupported().then(ok => { if(ok) getAnalytics(app); }).catch(console.warn);
+export const ADMIN_EMAIL = 'adityasonihyderabad@gmail.com';
